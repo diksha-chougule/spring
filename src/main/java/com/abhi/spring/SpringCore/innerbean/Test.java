@@ -9,7 +9,10 @@ public class Test {
 		
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("com/abhi/spring/SpringCore/innerbean/Config.xml");
 		Employee bean = (Employee) ctx.getBean("empobj");
-		System.out.println(bean);
+		System.out.println(bean.hashCode());
+		
+		Employee bean2 = (Employee) ctx.getBean("empobj");
+		System.out.println(bean2.hashCode());
 		
 
 	}

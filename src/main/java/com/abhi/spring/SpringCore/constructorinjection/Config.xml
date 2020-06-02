@@ -2,6 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans.xsd
     http://www.springframework.org/schema/context
@@ -9,10 +10,9 @@
 
 <context:annotation-config/>    
 
-<bean name = "empobj" class = "com.abhi.spring.SpringCore.innerbean.Employee" p:id="100" scope="prototype">
-<property name="add">
-<bean class="com.abhi.spring.SpringCore.innerbean.Address" p:hno="220" p:street="nagar road" p:city="pune"/>
-</property>
-</bean> 
+<bean name ="addressobj" class="com.abhi.spring.SpringCore.constructorinjection.Address" p:hno="820" p:street="nagar road" p:city="pune"/>
+
+<bean name = "empobj" class = "com.abhi.spring.SpringCore.constructorinjection.Employee" c:id="123" c:add-ref="addressobj"/>
+
 
 </beans>
